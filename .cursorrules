@@ -1,0 +1,51 @@
+# HCDE 530 Week 2 Project — Cursor context
+
+## Project
+
+Course exercise: read survey responses from CSV, summarize word counts in Python, and optionally present data in `dashboard.html`. Treat `demo_responses.csv` as the source of truth for participant text.
+
+## Directory structure
+
+Update this tree whenever you add, remove, or rename **tracked project files** or create/remove **top-level folders** (not `.git` internals).
+
+```
+HCDE 530 Week 2 Project/
+├── .cursorrules          # This file — agent & editor context
+├── CONTEXT.md            # Human project context, run instructions, code section map
+├── week2.md              # Week 2 reflection — Competency 2 (code literacy & documentation)
+├── .gitignore            # Python/macOS noise (e.g. .DS_Store, venv)
+├── count_words.py        # App reviews: load reviews.csv, print min/max/avg word stats
+├── demo_responses.csv    # Survey data (participant_id, role, response)
+├── demo_word_count.py    # Loads CSV, prints per-row + summary word stats
+├── dashboard.html        # Static dashboard; embeds CSV-derived JSON for file:// use
+└── reviews.csv           # Fictional app reviews (review_id, text) for count_words.py
+```
+
+## Maintaining `.cursorrules`
+
+- After any layout change above, **edit the Directory structure section** so it matches the repo. If `CONTEXT.md` is added or renamed, update here and keep `CONTEXT.md` aligned with real behavior.
+- If new file types appear (e.g. `requirements.txt`, `scripts/`), add a one-line comment in the tree explaining purpose.
+- Do not list `.git/` contents in the tree.
+
+## Python (`demo_word_count.py` and similar)
+
+- Use the standard library (`csv`); no extra dependencies unless the user asks.
+- Open CSV with `encoding="utf-8"` and `newline=""` when using `csv.reader` / `DictReader`.
+- **Word count** should match the existing script: `len(text.split())` on the response string (whitespace-separated tokens). Keep behavior consistent with the dashboard if both exist.
+- Prefer clear, instructional code suitable for a class assignment; avoid over-abstracting.
+
+## Data files
+
+- Survey CSV: column names must match the header: `participant_id`, `role`, `response`.
+- App reviews CSV (`reviews.csv`): `review_id`, `text` — used only by `count_words.py`.
+- If `demo_responses.csv` changes and `dashboard.html` embeds JSON, regenerate or update the embedded data so the dashboard stays in sync.
+
+## `dashboard.html`
+
+- Self-contained static HTML/CSS/JS is fine; no build step required.
+- Preserve offline use (embedded data or documented need for a local server if using `fetch`).
+
+## Scope
+
+- Keep edits limited to this project folder unless the user expands scope.
+- Do not commit `.DS_Store` (already in `.gitignore`).
