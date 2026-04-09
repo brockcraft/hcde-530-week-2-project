@@ -1,5 +1,6 @@
 """Read app reviews from CSV and summarize word counts per review."""
 
+# Section-by-section walkthrough: see CONTEXT.md
 import csv
 from pathlib import Path
 
